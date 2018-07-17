@@ -1,0 +1,29 @@
+<h1>contact form</h1>
+<div class ="container">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input ngModel
+        #firstName="ngModel"
+        (change)="log(firstName)"
+        name="firstName"
+        type="text" 
+        id="firstName"
+        minlength="3"
+        maxlength="10"
+        pattern="Rashmi"
+        required
+        class="form-control">
+        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+        <div *ngIf="firstName.errors.required">This field is required</div>
+        <div *ngIf="firstName.errors.minlength">It should be 3 characters</div>
+        <div *ngIf="firstName.errors.pattern">It doesn't valid name</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea name="comment" id="comment" cols="30" rows="30" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-primary">
+    </div>
+</div>
